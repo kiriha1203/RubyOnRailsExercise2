@@ -1,0 +1,14 @@
+h1 新規投稿
+
+.nav.justify-content-end
+  = link_to '一覧', blogs_path, class: 'nav-link'
+
+= form_with model: @blog, local: true, url: confirm_blogs_path do |f|
+  .form-group
+    = f.label 'タイトル'
+    = f.text_field :title, class: 'form-control', id: 'blog_title'
+  .form-group
+    = f.label '内容'
+    = f.text_area :content, row: 5, class: 'form-control', id: 'blog_content'
+
+  = f.submit nil, class: 'btn btn-primary'

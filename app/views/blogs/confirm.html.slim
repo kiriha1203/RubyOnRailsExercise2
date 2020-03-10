@@ -1,0 +1,13 @@
+h3 以下の内容で送信する。
+
+= form_with model: @blog, local: true do |f|
+  .form-group
+    = f.label 'タイトル'
+    = f.hidden_field :title, class: 'form-control', id: 'blog_title'
+  p #{@blog.title}
+  .form-group
+    = f.label '内容'
+    = f.hidden_field :content, row: 5, class: 'form-control', id: 'blog_content'
+  p #{@blog.content}
+
+  = f.submit nil, class: 'btn btn-primary'

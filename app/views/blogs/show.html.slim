@@ -1,0 +1,22 @@
+h1 記事内容
+
+.nav.justify-content-end
+  = link_to '一覧に戻る', blogs_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= Blog.human_attribute_name('タイトル')
+      td= @blog.title
+    tr
+      th= Blog.human_attribute_name('内容')
+      td= simple_format(h(@blog.content), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      td= Blog.human_attribute_name('登録日時')
+      td= @blog.created_at
+    tr
+      td= Blog.human_attribute_name('更新日時')
+      td= @blog.updated_at
+
+= link_to '編集', edit_blog_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @blog, method: :delete,
+        data: {confirm: "記事「#{@blog.title}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
