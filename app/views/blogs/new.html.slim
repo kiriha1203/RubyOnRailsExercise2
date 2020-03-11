@@ -1,4 +1,8 @@
 h1 新規投稿
+- if @blog.errors.present?
+  ul#error_explanation
+    - @blog.errors.full_messages.each do |msg|
+      li = msg
 
 .nav.justify-content-end
   = link_to '一覧', blogs_path, class: 'nav-link'
